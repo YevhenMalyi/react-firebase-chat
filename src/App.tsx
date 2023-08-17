@@ -1,7 +1,6 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { auth } from 'core';
-import { SignIn, SignOut } from 'subdomains/auth';
+import { auth, SignIn, SignOut } from 'core';
 import { ChatRoom } from 'subdomains/chat';
 
 const App = () => {
