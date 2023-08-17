@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 export enum ButtonType {
   PRIMARY = 'primary',
   OUTLINED = 'outlined',
@@ -6,19 +8,31 @@ export enum ButtonType {
 interface IButtonProps {
   text: string;
   action: () => void;
-  type: ButtonType
+  type: ButtonType;
+  disabled?: boolean;
 }
 
-export const Button = ({ text, action, type }: IButtonProps) => {
+export const Button = ({ 
+  text, action, type, disabled = false 
+}: IButtonProps) => {
   const className = {
-    [ButtonType.PRIMARY]: ' bg-orange-500 text-white hover:bg-orange-700 hover:border-orange-700',
-    [ButtonType.OUTLINED]: 'bg-white text-black hover:bg-orange-500 hover:text-white'
+    [ButtonType.PRIMARY]: 'border-primary-500  bg-primary-500 text-white enabled:hover:bg-primary-700 enabled:hover:border-primary-700',
+    [ButtonType.OUTLINED]: 'border-primary-500  bg-white text-black enabled:hover:bg-primary-500 enabled:hover:text-white',
+    disabled: {
+      [ButtonType.PRIMARY]: 'cursor-not-allowed border-primary-300 bg-primary-300 text-white hover:none',
+      [ButtonType.OUTLINED]: 'cursor-not-allowed border-primary-300 text-gray-400',
+    },
   };
 
   return (
     <button 
-      className={ `border-orange-500 rounded border-2 p-2 transition duration-300 ${className[type]}` } 
-      onClick={ () => action() }
+      disabled={ disabled }
+      className={ twMerge(
+        'group rounded border-2 p-2 transition duration-300 relative',
+        className[type],
+        disabled && className.disabled[type],
+      ) }
+      onClick={ () => !disabled && action() }
     >
       { text }
     </button>

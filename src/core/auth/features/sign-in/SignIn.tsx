@@ -11,8 +11,31 @@ export const SignIn = () => {
   return (
     <Card className='flex flex-col gap-4'>
       <>
-        <Button type={ ButtonType.PRIMARY } text="Sign In with Google" action={ signInWithGoogle }></Button>
-        <Button type={ ButtonType.OUTLINED } text="Sign In with Google" action={ signInWithGoogle }></Button>
+        <Button 
+          type={ ButtonType.PRIMARY } 
+          text="Sign In with Google" 
+          action={ signInWithGoogle }
+        ></Button>
+
+        <Button 
+          type={ ButtonType.OUTLINED } 
+          text="Sign In with Google" 
+          action={ signInWithGoogle }
+        ></Button>
+
+        <Button 
+          type={ ButtonType.PRIMARY } 
+          text="Sign In with Google" 
+          action={ signInWithGoogle } 
+          disabled
+        ></Button>
+
+        <Button 
+          type={ ButtonType.OUTLINED } 
+          text="Sign In with Google" 
+          action={ signInWithGoogle } 
+          disabled
+        ></Button>
       </>
     </Card>
   );
