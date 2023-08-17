@@ -13,29 +13,10 @@ export const SignIn = () => {
       <>
         <Button 
           type={ ButtonType.PRIMARY } 
-          text="Sign In with Google" 
           action={ signInWithGoogle }
-        ></Button>
-
-        <Button 
-          type={ ButtonType.OUTLINED } 
-          text="Sign In with Google" 
-          action={ signInWithGoogle }
-        ></Button>
-
-        <Button 
-          type={ ButtonType.PRIMARY } 
-          text="Sign In with Google" 
-          action={ signInWithGoogle } 
-          disabled
-        ></Button>
-
-        <Button 
-          type={ ButtonType.OUTLINED } 
-          text="Sign In with Google" 
-          action={ signInWithGoogle } 
-          disabled
-        ></Button>
+        >
+          Sign In with Google
+        </Button>
       </>
     </Card>
   );

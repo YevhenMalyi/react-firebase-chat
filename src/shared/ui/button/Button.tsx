@@ -6,14 +6,14 @@ export enum ButtonType {
 }
 
 interface IButtonProps {
-  text: string;
+  children: JSX.Element | string;
   action: () => void;
   type: ButtonType;
   disabled?: boolean;
 }
 
 export const Button = ({ 
-  text, action, type, disabled = false 
+  children, action, type, disabled = false 
 }: IButtonProps) => {
   const className = {
     [ButtonType.PRIMARY]: 'border-primary-500  bg-primary-500 text-white enabled:hover:bg-primary-700 enabled:hover:border-primary-700',
@@ -28,13 +28,13 @@ export const Button = ({
     <button 
       disabled={ disabled }
       className={ twMerge(
-        'group rounded border-2 p-2 transition duration-300 relative',
+        'group rounded border-2 py-2 px-4 transition duration-300 relative',
         className[type],
         disabled && className.disabled[type],
       ) }
       onClick={ () => !disabled && action() }
     >
-      { text }
+      { children }
     </button>
   );
 };

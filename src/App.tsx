@@ -1,6 +1,6 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { auth, SignIn, SignOut } from 'core';
+import { auth, SignIn } from 'core';
 import { ChatRoom } from 'subdomains/chat';
 
 const App = () => {
@@ -8,13 +8,7 @@ const App = () => {
 
   return (
     <div className="h-screen bg-primary-200 flex justify-center items-center">
-      <header>
-        <SignOut />
-      </header>
-
-      <section>
-        { user ? <ChatRoom /> : <SignIn /> }
-      </section>
+      { user ? <ChatRoom /> : <SignIn /> }
     </div>
   );
 };
