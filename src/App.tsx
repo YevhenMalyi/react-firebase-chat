@@ -8,7 +8,7 @@ const App = () => {
   const [ user ] = useAuthState(auth);
 
   return (
-    <div>
+    <div className="h-screen bg-orange-200 flex justify-center items-center">
       <header>
         <SignOut />
       </header>
