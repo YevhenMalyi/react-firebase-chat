@@ -15,8 +15,13 @@ export const MessageField = () => {
   };
 
   return (
-    <div className="flex w-full items-center justify-center">
-      <input type="text" onChange={ handleChange } value={ text } />
+    <div className="flex w-full items-center justify-center gap-4">
+      <input 
+        className="p-2 w-[300px]"
+        type="text" 
+        onChange={ handleChange } value={ text } 
+      />
+
       <Button type={ ButtonType.PRIMARY } action={ () => send(text) }>
         Send
       </Button>
